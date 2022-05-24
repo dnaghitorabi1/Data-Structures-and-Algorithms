@@ -14,7 +14,7 @@ function arraySumRecursive(array) {
   // arraySumRecursive(array.slice(1, array.length)) = arraySumRecursive([5, 10])
 
   // Down one level...
-  // array[0] + arraySumRecursive(array.slice(1, array.length)
+  // array[0] + arraySumRecursive(array.slice(1, array.length))
     // array[0] = 5
     // arraySumRecursive(array.slice(1, array.length)) = arraySumRecursive([10])
 
