@@ -1,23 +1,23 @@
 const N = parseInt(readline()); // Store the number of unique resistors present in the circuit
-let nameResistanceMap = new Map();  // Declare hash table for Name -> Resistance.
+let nameResistanceMap = new Map(); // Declare hash table for Name -> Resistance.
 let parenthesesBracketsMap = new Map(); // Declare hash table for matching parentheses/brackets.
 let circuitArray = [];
 let stack = []; // Declare stack.
 let string = "";
-let expression = "";  // Calculable expression string
+let expression = ""; // Calculable expression string
 let expressionArray = []; // Calculable expression array
 let seriesResistance = 0; // Resistance of sub-token
-let parallelResistance = 0;// Resistance of sub-token
+let parallelResistance = 0; // Resistance of sub-token
 let equivalentResistance = 0; // Running equivalent resistance
 
 // Assign parentheses and brackets open/close mapping.
 parenthesesBracketsMap.set(")", "(");
 parenthesesBracketsMap.set("]", "[");
 
-for (let i = 0; i < N; i++) {   // For each unique resistor,
+for (let i = 0; i < N; i++) { // For each unique resistor,
   var inputs = readline().split(' '); // store array of name and resistance,
   const name = inputs[0]; // store name string,
-  const R = parseInt(inputs[1]);  // store resistance integer.
+  const R = parseInt(inputs[1]); // store resistance integer.
 
   nameResistanceMap.set(name, R); // Assign Name to Resistance in hash table.
 }
@@ -41,8 +41,8 @@ circuitArray.forEach((item, i) => { // For each value in the array,
 
     // The calculable expression is in reverse order.
     // Need to reverse the expression and put its resistance into the stack.
-    expressionArray.reverse();  // Reverse the expression array.
-    expressionArray = expressionArray.slice(1, expressionArray.length - 1);  // Reduce to just the resistor names.
+    expressionArray.reverse(); // Reverse the expression array.
+    expressionArray = expressionArray.slice(1, expressionArray.length - 1); // Reduce to just the resistor names.
 
     // Replace any resistor names with their values.
     // If already a number, keep the same.
@@ -82,8 +82,8 @@ circuitArray.forEach((item, i) => { // For each value in the array,
         break;
     }
   }
-  expressionArray = [];  // Reset sub-expression.
-  string = "";  // Reset string.
+  expressionArray = []; // Reset sub-expression.
+  string = ""; // Reset string.
 });
 
 equivalentResistance = parseFloat(stack[0]).toFixed(1);
