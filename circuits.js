@@ -85,3 +85,6 @@ circuitArray.forEach((item, i) => { // For each value in the array,
   expressionArray = [];  // Reset sub-expression.
   string = "";  // Reset string.
 });
+
+equivalentResistance = parseFloat(stack[0]).toFixed(1);
+console.log(equivalentResistance);
